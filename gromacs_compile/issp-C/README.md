@@ -1,6 +1,6 @@
 # How to install gromacs-2021.7 in issp-C
 
-## <span style="color: red; ">Change the Path in the following commnds and scripts to match yours.</span>
+<span style="color: red; ">**Change the Path in the following commnds and scripts to match yours.**</span>
 1. compile openMPI 4.1.6 with gcc/12.2.0
 ```
 bash compile_4.1.6.sh 2 /home/k0055/k005530/apps/openMPI/4.1.6 
