@@ -2,9 +2,16 @@
 set -e
 
 module purge 
-module load \
-	intel/2022.2.1 \
-	intel-mpi/2021.7.1
+module load gcc/12.2.0
+MPIROOT=/home/k0055/k005530/openMPI/4.1.6
+PATH=$MPIROOT/bin:$PATH
+LD_LIBRARY_PATH=$MPIROOT/lib:$LD_LIBRARY_PATH
+MANPATH=$MPIROOT/share/man:$MANPATH
+export MPIROOT PATH LD_LIBRARY_PATH MANPATH
+#module load \
+#	gcc/
+#	intel/2022.2.1 \
+#	intel-mpi/2021.7.1
 #	openmpi_nvhpc/4.1.2 \
 #	nvhpc-nompi/22.2 
 #
@@ -38,8 +45,8 @@ cmake .. \
 	-DGMX_GPU=OFF \
 	-DGMX_FFT_LIBRARY=fftw3 \
 	-DGMX_BUILD_OWN_FFTW=ON \
-	-DCMAKE_C_COMPILER="mpiicc" \
-	-DCMAKE_CXX_COMPILER="mpiicpc" \
+	-DCMAKE_C_COMPILER="mpicc" \
+	-DCMAKE_CXX_COMPILER="mpic++" \
 	-DGMX_SIMD=AVX2_256 
 
 
