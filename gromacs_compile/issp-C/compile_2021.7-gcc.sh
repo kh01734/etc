@@ -3,26 +3,13 @@ set -e
 
 module purge 
 module load gcc/12.2.0
-MPIROOT=/home/k0055/k005530/openMPI/4.1.6
+MPIROOT=/home/kxxxx/kxxxxxx/openMPI/4.1.6
 PATH=$MPIROOT/bin:$PATH
 LD_LIBRARY_PATH=$MPIROOT/lib:$LD_LIBRARY_PATH
 MANPATH=$MPIROOT/share/man:$MANPATH
 export MPIROOT PATH LD_LIBRARY_PATH MANPATH
-#module load \
-#	gcc/
-#	intel/2022.2.1 \
-#	intel-mpi/2021.7.1
-#	openmpi_nvhpc/4.1.2 \
-#	nvhpc-nompi/22.2 
-#
 thread=$1
 PREFIX=$2
-#module load \
-#    oneapi_mkl/2023.0.0 \
-#    oneapi_compiler/2023.0.0 \
-#    oneapi_mpi/2023.0.0 \
-#    openmpi/4.0.4-gcc-10.1.0
-#
 
 if [ -z $thread ] || [ -z $PREFIX ]; then
     echo "thread number and prefix must be inputed" >&2
@@ -50,18 +37,7 @@ cmake .. \
 	-DGMX_SIMD=AVX2_256 
 
 
-#cmake .. \
-#    -DGMX_MPI=ON \
-#    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-#    -DGMX_GPU=OFF \
-#    -DGMX_FFT_LIBRARY=fftw3 \
-#    -DGMX_BUILD_OWN_FFTW=ON \
-#    -DCMAKE_C_COMPILER=mpigcc \
-#    -DCMAKE_CXX_COMPILER=mpic++ \
-#    -DGMX_SIMD=AVX2_256
-#
 make -j $thread
-#make check -j $thread
 make install -j $thread
 
 source ${PREFIX}/bin/GMXRC

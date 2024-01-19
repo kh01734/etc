@@ -12,7 +12,7 @@ if [ -z "4.1.6" ];then
 	mkdir 4.1.6
 fi
 cd openmpi-4.1.6
-./configure --prefix="/home/k0055/k005530/openMPI/4.1.6" CC=gcc CXX=g++ F77=gfortran FC=gfortran 
+./configure --prefix="/home/kxxxx/kxxxxxx/openMPI/4.1.6" CC=gcc CXX=g++ F77=gfortran FC=gfortran 
 make
 make install
 
