@@ -1,6 +1,8 @@
 # How to install GROMACS in issp-C
 
-- GROMACS is not pre-compiled in ISSP system C. Here I introduce how to install gromacs in this supercomputer.
+- GROMACS is not pre-compiled in ISSP system C. Here I introduce how to install gromacs in this supercomputer.\
+
+## Method
 <span style="color: red; ">**Change the Path in the following commands and scripts (".sh") to match yours.**</span>
 1. compile openMPI 4.1.6 with gcc/12.2.0
 ```
@@ -11,6 +13,7 @@ bash compile_4.1.6.sh 2 /home/kxxxx/kxxxxxx/apps/openMPI/4.1.6
 bash compile_2021.7-gcc.sh 2 /home/kxxxx/kxxxxxx/apps/gromacs/2021.7
 ```
 
+## Notes
 - Note that this compilation method does not enable gromacs to run in multiple nodes (but mpirun within 1 node is enabled).
 - In my system, it was fastest to run a simulation within 1 node of 128 core.  
 ```
