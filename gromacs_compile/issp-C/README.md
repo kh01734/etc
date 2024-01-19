@@ -1,5 +1,6 @@
-# How to install in issp-C
+# How to install GROMACS in issp-C
 
+- GROMACS is not pre-compiled in ISSP system C. Here I introduce how to install gromacs in this supercomputer.
 <span style="color: red; ">**Change the Path in the following commands and scripts (".sh") to match yours.**</span>
 1. compile openMPI 4.1.6 with gcc/12.2.0
 ```
@@ -16,4 +17,5 @@ bash compile_2021.7-gcc.sh 2 /home/kxxxx/kxxxxxx/apps/gromacs/2021.7
 mpirun -np 16 gmx_mpi mdrun -ntomp 8 -deffname brabra
 ```
 - You can compile 2022-6 in the same way by just changing 2021.7 to 2022.6 in the scripts
-- I confirmed this script to work as of Oct. 2023. There is a possibility that it may turn to be unusable due to future update in the ISSP-systemC.
+- I confirmed this script to work as of Oct. 2023.
+- There is a possibility that it may turn to be unusable due to future update in the ISSP-systemC.
